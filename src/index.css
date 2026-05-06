@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@media print {
+  @page { size: A4 portrait; margin: 12mm; }
+
+  .no-print { display: none !important; }
+
+  body {
+    background: white;
+    margin: 0;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  #root { border: none; }
+
+  /* Répétition de l'en-tête tableau sur chaque page */
+  thead { display: table-header-group; }
+  tfoot { display: table-footer-group; }
+
+  /* Évite de couper une ligne article entre deux pages */
+  .print-row { break-inside: avoid; page-break-inside: avoid; }
+
+  /* Évite d'orpheliner un titre de section */
+  .print-titre { break-after: avoid; page-break-after: avoid; }
+
+  /* Totaux et bas de page groupés */
+  .print-totaux { break-inside: avoid; page-break-inside: avoid; }
+}
+
+body { margin: 0; font-family: system-ui, sans-serif; }
+#root { min-height: 100svh; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
