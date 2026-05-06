@@ -24,17 +24,17 @@ const DevisPreview = forwardRef<HTMLDivElement, Props>(({ devis, settings }, ref
     <div ref={ref} className="bg-white w-full min-h-[297mm] p-12 text-gray-900 text-sm font-sans">
 
       {/* En-tête */}
-      <div className="flex justify-between items-start mb-10">
+      <div className="flex justify-between items-start mb-6">
         <div>
-          <img src="/logo.jpeg" alt={settings.nom} className="h-14 object-contain mb-2" />
+          <img src="/logo.jpeg" alt={settings.nom} className="h-20 object-contain mb-3" />
           <p className="text-xs text-gray-500 whitespace-pre-line">{settings.adresse}</p>
           {settings.tel   && <p className="text-xs text-gray-500">{settings.tel}</p>}
           {settings.email && <p className="text-xs text-gray-500">{settings.email}</p>}
         </div>
         <div className="text-right">
-          <h1 className="text-3xl font-bold text-gray-900 mb-1">DEVIS</h1>
-          <p className="text-xs text-gray-500 font-mono">{devis.numero}</p>
-          <p className="text-xs text-gray-400 mt-1">
+          <h1 className="text-4xl font-bold tracking-wide mb-1" style={{ color: '#1a5fa8' }}>DEVIS</h1>
+          <p className="text-sm text-gray-500 font-mono">{devis.numero}</p>
+          <p className="text-xs text-gray-400 mt-2">
             Date : <span className="text-gray-700">{formatDate(devis.date)}</span>
           </p>
           <p className="text-xs text-gray-400">
@@ -43,7 +43,7 @@ const DevisPreview = forwardRef<HTMLDivElement, Props>(({ devis, settings }, ref
         </div>
       </div>
 
-      <div className="border-t-2 border-gray-900 mb-8" />
+      <div className="h-0.5 mb-8" style={{ background: 'linear-gradient(to right, #1a5fa8, #e5e7eb)' }} />
 
       {/* Destinataire */}
       <div className="mb-10 ml-auto w-64">
@@ -203,7 +203,7 @@ const DevisPreview = forwardRef<HTMLDivElement, Props>(({ devis, settings }, ref
       </div>
 
       {/* Pied de page */}
-      <div className="mt-12 pt-4 border-t border-gray-100 text-center text-xs text-gray-300 space-y-0.5">
+      <div className="mt-12 pt-4 text-center text-xs text-gray-300 space-y-0.5" style={{ borderTop: '1px solid #1a5fa8' }}>
         <p>{settings.nom} — {settings.adresse.replace('\n', ', ')} — {settings.email}</p>
         {(settings.siret || settings.tva) && (
           <p>
